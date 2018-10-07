@@ -1,0 +1,47 @@
+html,
+body,
+#map {
+    height: 100%;
+    width: 100vw;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato',
+    sans-serif;
+    color: black;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-gap: 4px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 60% 40%;
+}
+
+.peta {
+    grid-column: 1/-1;
+}
+
+.gambar {
+    background: #039BE5;
+    grid-column: 1/6;
+    padding: 2vh 4vw;
+}
+
+.review {
+    background: #ECEFF1;
+    grid-column: 6/-1;
+    padding: 2vh 4vw;
+}
+
+.thumbnail {
+    width: 100%;
+}
