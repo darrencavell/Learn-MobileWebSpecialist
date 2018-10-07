@@ -1,0 +1,15 @@
+Pattern
+1. Column Drop
+   - At narrowest viewport, each element simply stacks vertically
+   - As viewport gets wider, the first two elements are side by side (At first breakpoint)
+2. Mostly Fluid
+   - At narrowest viewport, each element simply stacks vertically
+   - As the layout gets wider, the grid pattern starts to appear
+   - Once layout hits its widest viewport, margins are added to the left and right, instead of expanding things out
+3. Layout Shifter
+   - Probably the most responsive pattern with multiple breakpoints across several different screen widths
+   - The key to this layout is the way that content moves about, instead of reflowing and dropping below other columns
+4. Off Canvas
+   - Places less frequently used content like navigation, app-menus off screen
+   - only if the screen is large enough then the nav/app-menu is shown
+   - on smaller screens the app is typically shown when the user clicks on the hamburger icon

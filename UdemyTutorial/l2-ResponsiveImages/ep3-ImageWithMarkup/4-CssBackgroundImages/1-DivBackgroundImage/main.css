@@ -1,0 +1,30 @@
+body {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+}
+
+div#background {
+    align-items: center;
+    background: url(backgroundPattern.png);
+    display: flex;
+    height: 50vw;
+    justify-content: center;
+    width: 50vw;
+}
+
+div#background div {
+    align-items: center;
+    background: white;
+    display: flex;
+    font-family: Courier;
+    font-size: 5vmin;
+    height: 20vw;
+    justify-content: center;
+    margin: 5vw;
+    padding: 2vw;
+    text-align: center;
+    width: 20vw;
+}

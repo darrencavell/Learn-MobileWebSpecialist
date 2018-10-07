@@ -1,0 +1,12 @@
+body {
+    background-image: url(html5.svg);
+    background-repeat: no-repeat;
+    background-position: 97% 95%;
+    background-size: 5%;
+    height: 100vh;
+    margin: 0;
+}
+
+html {
+    background: linear-gradient(#000, white) no-repeat;
+}

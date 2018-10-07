@@ -1,0 +1,16 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    width: 100vw;
+}
+head,
+body,
+article,
+footer {
+    box-sizing: border-box;
+}
+.thumbnail {
+    width: 100%;
+}

@@ -1,0 +1,1803 @@
+######                                                            
+ #     # ######  ####  #####   ####  #    #  ####  # #    # ###### 
+ #     # #      #      #    # #    # ##   # #      # #    # #      
+ ######  #####   ####  #    # #    # # #  #  ####  # #    # #####  
+ #   #   #           # #####  #    # #  # #      # # #    # #      
+ #    #  #      #    # #      #    # #   ## #    # #  #  #  #      
+ #     # ######  ####  #       ####  #    #  ####  #   ##   ###### 
+
+ #     #                  ######                                
+ #  #  # ###### #####     #     # ######  ####  #  ####  #    # 
+ #  #  # #      #    #    #     # #      #      # #    # ##   # 
+ #  #  # #####  #####     #     # #####   ####  # #      # #  # 
+ #  #  # #      #    #    #     # #           # # #  ### #  # # 
+ #  #  # #      #    #    #     # #      #    # # #    # #   ## 
+  ## ##  ###### #####     ######  ######  ####  #  ####  #    # 
+
+ #######                                                                      
+ #       #    # #    # #####    ##   #    # ###### #    # #####   ##   #      
+ #       #    # ##   # #    #  #  #  ##  ## #      ##   #   #    #  #  #      
+ #####   #    # # #  # #    # #    # # ## # #####  # #  #   #   #    # #      
+ #       #    # #  # # #    # ###### #    # #      #  # #   #   ###### #      
+ #       #    # #   ## #    # #    # #    # #      #   ##   #   #    # #      
+ #        ####  #    # #####  #    # #    # ###### #    #   #   #    # ###### 
+                                                                               
+Lesson 1. Why Responsive?
+    1) Sites On Mobile
+        => Website Google News uses 2 strategies: 
+            - Fully responsive version for phones & tablets
+            - Responsive layout for desktops starts at minimum size
+    2) Quiz: Share Your Great & Awful Sites
+        => Another responsive websites: skinnyties.com, bonobos.com
+    3) Intro to Project
+        => Create a full responsive design, it's an art!
+    4) Pan, Zoom, Touch, Ick
+        => Make content works on any device
+    5) Emulators, Simulators, and Real Devices
+        => Not 100% accurate 
+            - as it has different code path, hardware,
+            - but it can make the job done!
+        => Emulator vs Simulator:
+            - Emulator = duplicates device's behaviour. Slow!
+            - Simulator = set's up similar environment, but doesn't simulate real device's hardware. Faster!
+    6) Setting up Chrome's Dev Tools
+        => Open Dev Tools (Ctrl+Shift+J)
+        => Emulator button: phone looking icon.
+    7) Remote Debugging Intro
+        => Testing on real device is important!
+    8) Setup for Mobile
+        => Steps:
+            a) Requirement: 
+                - Android device, 
+                - USB cable, and 
+                - development machine
+            b) Turn on Developer Mode
+                - Go to Device Settings,
+                - Click on About Device,
+                - Click Build Number 7 times
+            c) Turn on USB debugging on Developer Options
+            d) Install Chrome Canary
+    9) Using dev tools on mobile
+        => Steps:
+            a) Go to chrome://inspect/
+            b) Connect laptop to mobile device via USB
+            c) Confirm allow debugging
+        => Chrome Canary 
+            - is developer version of Chrome. 
+            - looks & acts as regular chrome,
+            - but includes new & experimental feature.
+        => Connecting mobile devices with laptops 
+            - inspect the element from development machine.
+    10) Mobile tools for iOS
+        => Possible to do it on mobile safari,
+            - using the iOS WebKit Debug Proxy.
+    11) Lesson Summary
+        => Learn about responsive design, 
+        => why is it so important, and 
+        => the tools to start developing.
+
+Lesson 2. Starting Small
+    1) Defining the Viewport
+        => optimize pages for different screen size, including
+            - difference between CSS & device-independent pixels.
+        => viewport:
+            - defines area of screen,
+            - browser to render content to.
+    2) Pixels, pixels and moar pixels!
+        => browser reports width: dips (device-independent pixels)
+            - unit of measurement that relates pixels to real distance
+    3) Quiz: Pixelation
+        => resolution 1920x1080 pixels: hardware pixels
+    4) Quiz: Calculation DPR
+        => diagram demonstrates hardware pixels and dips
+        => device pixel ratio of 2: 1 dip = 2 hardware pixels
+    5) Quiz: What's the difference?
+        => why would same website look different on screens?
+            - Device pixel ratio differs
+            - Viewport wasn't set
+    6) Quiz: Calculating CSS Pixels
+        => mobile screen has resolution 1920x1080 px & device pixel ratio of 2, what is the max width of viewport? `960 pixels`
+    7) Quiz: How wide is the viewport?
+        => Phone 640px wide, DPR=2  `320px`
+        => Phablet 768px wide, DPR=2.5 `307.2px`
+        => Tablet 1024px wide, DPR=1 `1024px`
+        => Laptop 800px wide, DPR=1 `800px`
+    8) Setting the Viewport
+        => <meta name="viewport" content="width=device-width,initial-scale=1">
+        => without initial-scale=1,
+            - browsers may keep in constant when rotating to landscape mode, 
+            - scale content, rather than reflow
+    9) Large Fixed Width Elements
+        => shouldn't count on specific viewport width
+        => use relative rather than absolute (width: 100%)
+    10) Max-width on Elements
+        => use relative width to prevent overflowing
+    11) Quiz: Relative Sizes
+        => max-width: 100%
+        => 125px smaller than any device (<320px)
+        => width: 100%
+    12) Tap Target Sizes
+        => must at least 40 CSS pixels (48x48 px recommended)
+            - fingers 10mms wide (half an inch)
+    13) Quiz: Tap Targets
+        => min-height: 60px; min-width: 60px;
+        => padding: 1.5em; (1.5 * 16px = 24px each side)
+    14) Start Small
+        => design from smaller factor, then going up
+            - if starting big, we might miss important content
+            - working up, key content always on page
+            - performance matters (prioritizing content)
+    15) Quiz: Project Part 1
+        => use the meta tag (<meta name="viewport" content="width=device-width,initial-scale=1">)
+        => use width: 100%
+        => button sizes greater / equal to 48px
+        => test on different emulators!
+    16) Project Solution - Long
+        => solution in a full description
+    17) Lesson Summary
+        => basic concept of responsive design
+            - device independent pixels
+            - hardware pixels
+            - viewport
+
+Lesson 3. Building up
+    1) Lesson Intro
+        => thinking responsively: UX good
+        => inputs need to be big
+        => element arrange on page
+    2) Basic Media Query Intro
+        => media queries provide easy logic
+        => @media screen and (min-width: 750px)
+    3) Adding a Basic Media Query
+        => <link rel="stylesheet" media="screen and (min-width:500px)" href="over500.css">
+    4) Adding a Basic Media Query 2
+        => @import url("no.css") only screen and (min-width: 500px) but this cost performance matters
+        => linked CSS: too much http request
+        => @media: few big http requests
+    5) Next Step Media queries
+        => min-aspect-ratio     aspect      max-aspect-ratio
+        => min-color            color              max-color
+        => min-height           height            max-height
+        => min-width            width              max-width
+        => min-resolution     resolution      max-resolution
+        => min-device-width vs max-device-width (screen/device size)
+            - prevent content from adapting
+    6) Breakpoints
+        => change entire layout of web, not just background color
+    7) Breakpoints Pt. II
+        => example: skinnyties.com and cnn.com
+    8) Quiz: Number of Breakpoints
+        => medium.com `2`
+        => sample site `2`
+    9) Picking Breakpoints
+        => define breakpoints according to content
+    10) Picking Breakpoints 2
+        => Steps:
+            - set viewport as small
+            - chrome dev tools open to see the screen width
+            - slowly resizing, looking when content needs breakpoints 
+    11) Quiz: Pick a Breakpoints
+        => Breakpoints taking by feeling
+    12) Complex Media queries
+        => combination between types of queries
+    13) Quiz: What Styles Are Applied
+        => combination of complex queries
+        => AA: (max-width: 400px)
+        => BB: (min-width: 301px) and (max-width: 600px)
+        => CC: (min-width: 601px)
+        => DD: (min-width: 961px)
+    14) Grids
+        => grid fluid system, columns end up wrapping to the next line ast browser width starts getting smaller. (960 pixel grid layout / bootstrap)
+    15) Flexbox Intro
+        => fill space available, and shrink
+        => easy position element, left and right without floats
+        => able to change order element without changing HTML
+    16) Flexbox Container
+        => display: flex; flex-direction: row; flex-wrap: wrap;
+        => by default it sits on single line, without flex-wrap.
+    17) Flex Item
+        => order: 1;
+        => it can be really responsive.
+    18) Deconstructing a Flexbox layout
+        => change things with order and width.
+    19) Quiz: Deconstructing a Flexbox layout
+        => just play with order and width.
+    20) Lesson Summary
+        => flex box and flex grid for responsive layout
+
+Lesson 4. Common Responsive Patterns
+    1) Intro to Patterns
+        => pattern that works well across multiple devices:
+            - Mostly Fluid
+            - Column Drop
+            - Layout Shifter
+            - Off Canvas
+    2) Pattern - Column Drop
+        => narrow (small width) viewport, element stacks vertically!
+        => wider viewport, elements expand, until breakpoint hit, then side by side
+        => at maximum width, margin-left and margin-right are added
+    3) Pattern - Mostly Fluid
+        => similar to column drop, buat tends to be more like a grid like
+    4) Quiz: Mostly Fluid Part 1
+        => just insert width ezpz
+    5) Quiz: Mostly Fluid Part 2
+        => the same with above
+    6) Quiz: Combining Fluid Layouts
+        => change the width
+    7) Pattern - Layout Shifter
+        => the most responsive pattern, multiple breakpoints, using order from flexbox
+        => default order: 0
+    8) Quiz: Which is Which?
+        => predict the id of the box
+    9) Pattern: Off Canvas
+        => set things off screen, only showing them if the screen is large enough
+    10) Quiz: Off Canvas Visualization
+        => position: absolute; tells us that it is over other element.
+    11) Quiz: Project Update Part 2
+        => learn 4 common responsive design pattern.
+        => transform: translate(-300px, 0);
+        => transition: transform 0.3s ease;
+        
+Lesson 5. Optimizations
+    1) Lesson Intro
+        => images, tables, and typography
+    2) Images
+        => sourceset: to let browser choose the best resolution
+        => cropped image: art direction, picture element comes in. It uses media query.
+    3) Responsive Tables Intro
+        => fix overflow tables:
+            - hidden columns
+            - no more tables
+            - contained tables
+    4) Responsive Tables - Hidden Columns
+        => hide columns based on their importance according to the viewport
+        => display: none;
+        => might be dangerous to use, because some of them is hiding.
+    5) Quiz: Hide Some Columns
+        => comparing 'display:none' and 'visibility: hidden':
+            - visibility: hidden takes the element but it still remains there, and still taking up spaces
+            - display: none removes the element completely, no taking up spaces
+    6) Responsive Tables - No More Tables
+        => @media screen and (max-width: 500px){
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr { // hide table header, not using display: none as it may cause accessibility problems to paople using screen readers.
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            td { // make room for header
+                position: relative;
+                padding-left: 50%;
+            }
+            td:before {
+                position: absolute;
+                left: 6px;
+                content: attr(data-th);
+                font-weight: bold;
+            }
+        }
+    7) Responsive Tables - Contained Scrolling
+        => overflow-x: auto;
+        => scroll between viewport
+    8) Fonts
+        => phrases need to be read as group. Don't get text too long, readers might get lost. 45 char per lines - 90 char per lines. But 65 CPL is a great idea.
+        => Font-size need to be big enough (1.2em, 1.25em)
+    9) Minor Breakpoints
+        => addd margin / padding, increase font-size.
+    10) Quiz: Final Project Updates
+        => design is art, change font, add margin, etc.
+    11) Wrap Up
+        => we've got all the basic stuffs
+
+
+ReadMore:
+-http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/
+-https://www.lifewire.com/display-none-vs-visibility-hidden-3466884
+-https://developers.google.com/web/fundamentals/design-and-ux/responsive/images
+-https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
+-https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ######                                                            
+ #     # ######  ####  #####   ####  #    #  ####  # #    # ###### 
+ #     # #      #      #    # #    # ##   # #      # #    # #      
+ ######  #####   ####  #    # #    # # #  #  ####  # #    # #####  
+ #   #   #           # #####  #    # #  # #      # # #    # #      
+ #    #  #      #    # #      #    # #   ## #    # #  #  #  #      
+ #     # ######  ####  #       ####  #    #  ####  #   ##   ###### 
+                                                                   
+ ###                                                               
+  #  #    #   ##    ####  ######  ####                             
+  #  ##  ##  #  #  #    # #      #                                 
+  #  # ## # #    # #      #####   ####                             
+  #  #    # ###### #  ### #           #                            
+  #  #    # #    # #    # #      #    #                            
+ ### #    # #    #  ####  ######  ####                              
+                                                
+Lesson 1. Getting Up and Running
+    1) Course Introduction
+        => images is beautiful, informative
+    2) Why Responsive Images?
+        => images consumes 62% bandwith, we can't rely on bandwidth.
+        => images don't work so well on different screen sizes
+    3) Intro to Project
+        => creating website that fast, high quality images with fewest bytes possible
+    4) Setting up Your environment
+        => using chrome dev tools
+    5) Setup for Mobile
+    6) Using dev tools on mobile
+    7) Mobile tools for iOS
+    8) Lesson Wrap Up
+        => ready to create responsive images in mind
+
+Lesson 2. Units, Formats, Environments
+    1) Quiz: Sizing Intro
+        => file size, natural width, quality
+        => $0 by clicking the element first, e.g ($0.naturalWidth)
+    2) All about Bits and Pixels
+        => total bits = pixels x bits per pixels
+            - bpp = store each pixels
+        => most common mistake, dimension too large, quality too high
+            - better Calculation
+            - less pixels x better compression = less bytes
+    3) Requests and Revenue
+        => webpage makes 56 requests for images
+        => traffic cost delays and causing uncomfortness
+    4) Relative Sizing
+        => given fixed size, but when resized, image gets cropped, need to scroll
+        => relative sizing, set width: 100%, looks good on smaller browser, but when resize, it starts to get pixelated & blurry.
+        => if set max-width: 100%, it will expand nicely, but only as wide as natural width
+        => don't assume window size == screen size
+        => don't assume window size stay the same
+        => want image side by side, width: 50%
+        => img {
+               margin-right: 10px;
+               max-width: 426px;
+               width: calc((100% - 10px)/2);
+           }
+           - use calc to combine absolute & relative values!
+        => img:last-of-type {
+               margin-right: 0;
+           }
+           - last-of-type make sure to include attributes on last type of it.
+    5) IMPORTANT! Udacity Front End Feedback Extension
+        => install udacity extension to ease Feedback
+    6) Quiz: calc()
+        => make sure to have space between -
+    7) Landscape and Portrait
+        => think about the way u use device,
+            - phones & tablet: portrait
+            - screen browser: landscape
+        => golden rule: don't assume viewport size will always stay the same
+    8) Less Well Known CSS Units
+        => vh vw
+        => 100vmax 100vmin
+    9) Raster and Vector
+        => raster might come from camera
+        => vector come from line art (curves, lines, shapes, fill color and gradients)
+            - Adobe Illustrator, Inkscape, SVG
+            - Advantage: 1) browser can render vector image at any size
+                         2) describe geometry of the image (lines, curves, color)
+    10) Quiz: Raster or Vector Banner?
+        => Vector. It scales without quality degradation.
+    11) Quiz: Raster and Vector Identification
+        => svg and jpg differs by Ctrl+Shift+I
+    12) File Formats
+        => jpeg might work on smaller screen, but on desktop it might lead to an artifact (photographic)
+        => svg look good, crisp images 
+        => webp, support alpha transparency, animation with lossly and lossless
+    13) Quiz: Spot the Differences?
+        => natural size
+    14) Quiz: Spot the Differences2?
+        => difference in compression level
+    15) Image compression
+        => optimize page, use PageSpeed!
+    16) Quiz: Project Part 1
+        => create a good website
+    17) Lesson Summary!
+        => will go to workflow, with few bytes as possible
+
+Lesson 3. Image with Markup
+    1) Performance
+        => The reality of mobile networking means that the number of file requests can be just as signigicant as the size of requests. In other words, aim to reduce the number of image requests, not just the size of image files.
+        => We call this problem latency, which is the delay between requests and response.
+        => Yeah everytime your browser attemps to retrieve an image from a website, there are potential delays at every step of the way between your device and the website's servers. And everyone one of those delays can vary signigicantly and unpredictably.
+        => Behind all that is the fundamental problem that data can't travel any faster than the speed of light.
+        => Yeah, I mean surely Google / someone else could do something about that. The speed of light, you know, it's so last century. Cameron, like, you're a physicist, right.
+        => Stop, stop, stop. No.
+        => All right.
+        => Definitely not. At least, not any time this millennium.
+        => Alright, whatever, whatever.
+        => Anyway, optical fiber can only achieve a bit better than half the speed of light. So at best, London to California, return trip times for example, are around a hundred miliseconds.
+        => And performance expert, Ilya Grigorik, calls latency the new bottleneck.
+        => Thanks Sam, indeed, it turns out that for many modern web pages, bandwith doesn't matter as much as latency does. If you find that surprising, check the instructor notes for an explanation of why that is the case. The bottom line is that performance is a fundamental part of a truly responsive design. In practice, that means you need to reduce the file sizes, and reduce the number of file request. And one great way to reduce the number of images bytes is to compress them or reduce the number of images.
+        => Thanks Elliot, in this lessosn we show you lots of ways to achive graphical effects without image files.
+    2) Text Problems
+        => in the early days, it's common to save images as graphics, and doesn't scale well
+        => started to see artifacts, better to use text than include text in images
+    3) CSS Technique
+        => use css styling wisely, don't sparringly
+    4) CSS Background Images
+        => also support background-image
+    5) Quiz: CSS Background Image Technique
+        => cover vs contain 
+            - cover: as small as possible filling container fully,
+                     it's smallest dimension matches container's smallest dimensions
+                     largest dimension overflow container
+            - contain: as large as possible filling container fully
+                       it's largest dimension fitting in the container
+                       might be left with white spaces / duplicate image
+                       one of it's dimension might be smaller than container's dimension
+    6) Symbol Character
+        => unicode-table.com, check from the font, is it possible>
+        => don't incurr extra download
+        => unicode!
+    7) Unicode Trebe Clef
+        => <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        => https://unicode-table.com/en/
+    8) Icon Fonts
+        => possible to build a font family, made of images & icons, rather than letters
+        => weloveiconfonts.com, fontawesome.com, zocial.smcllns.com, css-tricks.com/examples/IconFont, developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
+    9) Inlining Images with SVG and data URIs
+        => reduce file request, we can inline images using code (svg and data URI)
+        => data URI: include a file such as image inline as a base64 encoded string
+            - <img src="data:image/svg+xml;base64,[data]">
+            - can be inline in css and html
+        => https://upload.wikimedia.org/wikipedia/commons/6/6c/Trajans-Column-lower-animated.svg
+        => https://www.creativebloq.com/design/examples-svg-7112785
+        => https://codepen.io/chrisgannon/
+    10) Quiz: Strategy Quiz 1
+        => <img src="file.png">
+        => <img src="data:image/png;base64,.../>
+        => star icon and bike, reused and scaled on mobile
+            - vector, 
+            - external: when u try to reuse it, and inline: simple shape and add not too many bytes 
+    11) Quiz: Strategy Quiz 2
+        => single use photos
+            - .jpg
+            - inline: reduce to minimize request, and external
+    12) Quiz: Strategy Quiz 3
+        => logo in small and large Formats
+            - vector
+            - external
+    13) Quiz: Strategy Quiz 4
+        => wants spinning record icon for loading videos
+            - animated svg
+            - external
+    14) Quiz: Project Part 2
+    15) Lesson Summary
+        => images isn't always necessary!
+
+Lesson 4. Full Responsiveness
+    1) Responding to Screen Capabilities & View
+        => serving 1 single file for every context is not a good idea
+        => how do we set every combination according to screen resolution
+        => handle to use umpteen media queries, but in the future it might be changed
+    2) srcset
+        => save image with larger dimension, if it is high dpi screen
+        => it gives alternative files, choose best Options
+        => can use the 1x, 2x (Device Pixel Ratio)
+            - <img src="wallaby_1x.jpg" srcset="wallaby_1x.jpg 1x, wallaby_2x.jpg 2x" alt="Wallaby">
+            - 1x, 2x is called Pixel Density Descriptor
+            - pixensity.com/list/hdtv/
+        => can also use the w unit (Image Width)
+            - <img src="small.jpg" srcset="small.jpg 500w, medium.jpg 100w, large.jpg 1500w" alt="Wallaby">
+            - tells the browser the width of each image, thereby enabling browser retrieve info
+    3) Sizes Attribute
+        => the browser knows:
+            - screen resolution
+            - image dimension (from srcset w unit)
+        => <img src="small.jpg" srcset="small.jpg 500w, medium.jpg 100w, large.jpg 1500w" alt="Wallaby" sizes="(max-width: 250px) 100vw, 50vw">
+    4) Quiz: srcset Quiz
+        => <img src="images/Den_Haag_2x.jpg" srcset="images/Den_Haag_1x.jpg 1x, images/Den_Haag_2x.jpg 2x">
+        => <img src="images/Australia_1280w.jpg" srcset="images/Australia_640w.jpg 640w, images/Australia_1280w.jpg 1280w">
+    5) Quiz: srcset and sizes
+        => <img src="images/Coffee_1280w.jpg" srcset="images/Coffee_1280w.jpg 1280w, images/Coffee_640w.jpg 640w" sizes="(max-width:960px) 50vw, (min-width:961px) 100vw">
+    6) The Picture Elements
+        => <picture>
+              <source srcset="kittens.webp" type="image/webp">
+              <source srcset="kittens.jpeg" type="image/jpeg">
+              <img srcset="kittens.jpg" alt="Two grey tabby kittens">
+           </picture>
+    7) The Full Monty
+        => <picture>
+              <source media="(min-width: 650px)" srcset="kitten-large.png">
+              <source media="(min-width: 465px)" srcset-"kitten-medium.png">
+              <img src="kitten-small.jpg" alt="Cute Kitten">
+           </picture>
+        => <picture>
+              <source media="(min-width: 1000px)"
+                      srcset="kookaburra_large_1x.jpg 1x, kookaburra_large_2x.jpg 2x">
+              <source media="(min-width: 500px)"
+                      srcset="kookaburra_medium_1x.jpg 1x, kookaburra_medium_2x.jpg 2x>
+              <img src="kookaburra_small.jpg" alt="The Kookaburra">
+           </picture>
+        => in safari, hasn't got the new srcset, use picturefill polyfill!
+    8) Accessibility
+        => use alt in img to make it accessibility.
+    9) Quiz: Accessibility Promise
+        => alt attributes should be descriptive for important images
+        => alt attributes should be empty for images that are just decorations
+        => alt attributes should be set on every image
+    10) Quiz: Project Part 3
+    11) Course Conclusion
+ReadMore:
+https://litmus.com/blog/png-gif-or-jpeg-which-ones-should-you-use-in-email
+https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization
+https://developers.google.com/speed/webp/?csw=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #                                                                         
+   # #    ####  #   # #    #  ####  #    # #####   ####  #    # #    #  ####  
+  #   #  #       # #  ##   # #    # #    # #    # #    # ##   # #    # #      
+ #     #  ####    #   # #  # #      ###### #    # #    # # #  # #    #  ####  
+ #######      #   #   #  # # #      #    # #####  #    # #  # # #    #      # 
+ #     # #    #   #   #   ## #    # #    # #   #  #    # #   ## #    # #    # 
+ #     #  ####    #   #    #  ####  #    # #    #  ####  #    #  ####   ####  
+                                                                              
+       #                                                                      
+       #   ##   #    #   ##    ####   ####  #####  # #####  #####             
+       #  #  #  #    #  #  #  #      #    # #    # # #    #   #               
+       # #    # #    # #    #  ####  #      #    # # #    #   #               
+ #     # ###### #    # ######      # #      #####  # #####    #               
+ #     # #    #  #  #  #    # #    # #    # #   #  # #        #               
+  #####  #    #   ##   #    #  ####   ####  #    # # #        #               
+                                                                              
+ ######                                                                       
+ #     # ######  ####  #    # ######  ####  #####  ####                       
+ #     # #      #    # #    # #      #        #   #                           
+ ######  #####  #    # #    # #####   ####    #    ####                       
+ #   #   #      #  # # #    # #           #   #        #                      
+ #    #  #      #   #  #    # #      #    #   #   #    #                      
+ #     # ######  ### #  ####  ######  ####    #    ####                       
+                                                                              
+Lesson 1. Ajax with XHR
+    1) Course Intro
+        => ajax: make request of some data, without pausing to wait the request to return,
+                 we can do something else, then when it returns, we can deal with it.
+    2) Client Server Demonstration
+        => Requests: client (browser) request something to server through the internet
+        => Response: the server sends back what the client requested
+        => Callback: do the things when I get response back
+    3) Ajax Definition & example
+        => ajax request allow content retrieval and display without reloading page
+        => Asynchronus: request doesn't block other events from happening,
+                        instead it keeps doing it's thing when it gets returned by the server
+                      : response: XML, JSON, HTML
+           Javascript 
+           And
+           XML
+        => LONG STORY SHORT
+            - it was unit the late 90s, when Microsoft Outlook team added XMLHTTP to Internet Explorer, them it began to spread widely and many browsers pick this as XMLHttpRequest
+    4) APIs
+        => Application
+           Programming
+           Interface
+        => create external API to create interesting interactions for users.
+        => https://developers.google.com/apis-explorer/#p/, https://www.programmableweb.com/apis/directory
+    5) Create An Async Request with XHR
+        => create a cake,
+            - put all the required ingredients, need the cake to be baked before we can have frosting
+            - we requested the oven to take the cake batter to turn into cake
+            - and when it's done, the timer will beep, and letting me know that I can get the cake back
+            - but we don't need to sit here and wait for the cake to bake.
+            - we could do something else, like create the mixture for frosting
+    6) The XHR Object
+        => const asyncRequestObject = new XMLHttpRequest();
+    7) XHR's .open() method
+        => it does not send the request, it initializes
+        => asyncRequestObject.open('GET', 'https://unsplash.com');
+            => biasanya kita pake 2 param udah cukup,
+                - param1: HTTP method
+                - param2: URL
+        => const myAsyncRequest = new XMLHttpRequest();
+           myAsyncRequest.open('GET', 'https://udacity.com/', false);
+            - kalo ada false dibelakang, artinya itu false asynchronus, limited jadi javascriptnya disuru tunggu baru bisa proses
+    8) XHR's .send() method
+        => asyncRequestObject.send();
+    9) A Full Request
+        => using API and JSON, to extract data easily
+        => function handleSuccess(){
+            const data = JSON.parse(this.responseText);
+            console.log(data);
+           }
+           asyncRequestObject.onload = handleSuccess;
+    10) Project Initial Walkthrough
+        => project from github: https://github.com/udacity/course-ajax
+        => Create developer account for unsplash, the new york times!
+    11) Setting a Request header
+        => use api from unsplash and nytimes
+    12) Project Final Walkthrough
+        => create project from part 11
+    13) XHR recap!
+        => if we use xhr, we need to type all code in everytime,
+           and then jquery might comes in handy, it will do it for you!
+
+Lesson 2. Ajax with jQuery
+    1) The jQuery Library & Ajax
+        => jQuery is being used for it's alignment in browsers,
+           as back in time browser's handn't joined together to standardize.
+        => but now, as browsers now align, jquery has one other feature,
+           it's ajax!
+    2) jQuery's `ajax()` method
+        => $.ajax(<url-to-fetch>, <a-configuration-object>);
+           or
+           $.ajax(<just-a-configuration-object>)
+        => What is configuration object?
+           - just a plain javascript object that is used to configure
+           - var settings = {
+               frosting: 'buttercream',
+               colors: ['orange', 'blue'],
+               layers: 2,
+               isRound: true
+           }
+           const myDeliciousCake = MakeCake ( settings );
+           or
+           const myDeliciousCake = MakeCake({
+               frosting: 'buttercream',
+               colors: ['orange', 'blue'],
+               layers: 2,
+               isRound: true
+           })
+        => Making an Ajax call
+            - $.ajax({
+                  url: 'https://swapi.co/api/people/1/'
+              });
+    3) Handling the returned data!
+        => kalo di XHR kita pake onload, disini penggantinya itu done
+           buat handle request
+            - function handleResponse(data) {
+                  console.log('the ajax request has finished!');
+                  console.log(data);
+              }
+              $.ajax({
+                  url: 'https://swapi.co/api/people/1/'
+              }).done(handleResponse);
+    4) Cleaning up the Success data
+        => differences between the XHR and AJAX
+            - function addImage() {
+                  const data = JSON.parse(this.responseText);
+                  const firstImage = data.results[0];
+  
+                  responseContainer.insertAdjacentHTML('afterbegin', `<figure>
+                          <img src="${firstImage.urls.small}" alt="${searchedForText}">
+                          <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
+                      </figure>`
+                  );
+              }  
+              INTO
+              function addImage(images) {
+                  const firstImage = images.results[0];
+  
+                  responseContainer.insertAdjacentHTML('afterbegin', `<figure>
+                          <img src="${firstImage.urls.small}" alt="${searchedForText}">
+                          <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
+                      </figure>`
+                  );
+              }
+    5) Code Walkthrough
+        => example of nyt code quiz
+    6) Peek inside $.ajax()
+        => use debugging tool
+    7) Review the Call stack
+        => a handy tool in the inspect tool chrome
+    8) Walkthrough of the ajax's transport
+        => answer for quiz in part 7, number 3 and 3b under this summary!
+    9) jQuery's Other Async methods
+        => to do asynchronus calls
+            - .get(), http://api.jquery.com/jQuery.get/
+            - .getJSON(), http://api.jquery.com/jQuery.getJSON/
+            - .getScript(), http://api.jquery.com/jQuery.getScript/
+            - .post(), http://api.jquery.com/jQuery.post/
+            - .load(), http://api.jquery.com/load/
+    10) Async with jQuery Outro
+        => the video is done
+
+Lesson 3. AJAX with fetch
+    1) Ajax call with the Fetch API
+        => using xhr and @.ajax are just like mainstream
+        => that's why Fetch API comes in
+    2) What is Fetch
+        => a brand new way to make a network request!
+        => fetch is promise based
+        => fetch need a polyfill
+    3) Write the Fetch Request
+        => we can change the default method of fetch request
+        => fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`, {
+               method: 'POST'
+           });
+    4) Handle the Response
+        => fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`, {
+               headers: {
+                   Authorization: 'Client-ID abc123'
+               }
+           }).then(function(response) {
+               debugger; // work with the returned response
+           });
+    5) The Response Object
+        => fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`, {
+               headers: {
+                   Authorization: 'Client-ID abc123'
+               }
+           }).then(function(response) {
+               return response.json();
+           }).then(addImage);      
+           function addImage(data) {
+               debugger;
+           }
+    6) ES6 Arrow function
+        => // without the arrow function
+           }).then(function(response) {
+               return response.json();
+           })   
+        => // using the arrow function
+           }).then(response => response.json())
+    7) Display Content & Handling Errors
+        => allocating the data from response into the front-end view
+        => .catch(e => requestError(e, 'image'));
+            - Issues with the network
+            - Issues with the fetch request
+            - Unsplash not having an image for the searched term
+    8) Project Wrap-Up
+        => creating the same like above but for the nytimes
+    9) Fetch Outro
+        => fetch can also create complicated request involvin custom headers,
+           caching or simple request by just using urls
+    10) Course Outro
+        => done
+
+QUIZ:
+1) Go to Google, open up the developer tools, and run the following on the console:
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const req = new XMLHttpRequest();                                                                          !
+!       req.open('GET', 'https://www.google.com/');                                                                !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   What happens?
+   => Nothing happens
+2) An XHR object's .open() method can take a number of arguments. 
+   Use the documentation to explain what the following code does:
+        const myAsyncRequest = new XMLHttpRequest();
+        myAsyncRequest.open('GET', 'https://udacity.com/', false);
+   => The JavaScript freezes and waits until the request is returned.
+   => if we don't specify onload, then the request just like waste. More example like baking a cake, without you eating it at the end!
+3) The request for Unsplash doesn''t work because it needs an HTTP header to be sent along. What is the XHR method to add a header to the request? Check out the documentation for help!
+    => .setHeaderRequest();
+1) The only change that needs to be made is including the Client ID header 
+   along with the request so that Unsplash will verify the request. 
+   Why don't you check out the API for the .ajax() method and 
+   select the code below that correctly adds an "Authorization" header to the request.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  => $.ajax({                                                                                                     !
+         url: https://api.unsplash.com/search/photos?page=1&amp;query=${searchedForText},
+         headers: { Authorization: 'Client-ID 123abc456def' }
+!     }).done(addImage);                                                                                           !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2) Replace Nytimes Xhr With $.Ajax()
+   Now that we've walked through converting one request from using XHR to jQuery's .ajax() method, 
+   why don't you give it a shot on your own and convert the second request!
+   Make sure to use the existing code as an example. If you get stuck, check out the documentation page.
+   When you're successfully converted the code to use jQuery's .ajax() method and 
+   fixed the callback function so it adds the data to the page, check the checkbox to continue.
+   => the same like before
+3) When $.ajax() is called, does the jQuery code create a new XHR object each time 
+   or does it create an initial one and reuses it for each subsequent call to .ajax()?
+   => Look at jQuery's code and especially the jQuery.ajaxSettings.xhr function, 
+      we can see that the code is return new window.XMLHttpRequest();. 
+      So this code will return a new XHR object every time it's called 
+      (which happens every time $.ajax() is run!).
+3b) Try working through the .send() function (the third item from the bottom of the call stack) 
+    on your own to see how it sets up the newly created XHR object. After reviewing the code, 
+    how does it set all of the headers?
+    => jQuery uses a for…in loop to iterate over the data in the headers object. 
+       This can be seen on lines 9159-9201. jquery-3.3.1.js
+1) Docs are a dev's best friend! Take a quick look through them and pick the correct way(s) 
+   to add a header to a Fetch request from the options below. Also, instead of cheating and guessing, 
+   try testing out the code you think is correct in your app or on the console to see how it runs!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!  => fetch(https://api.unsplash.com/search/photos?page=1&amp;query=${searchedForText}, {                          !
+!         headers: { Authorization: 'Client-ID abc123' }                                                           !
+!     });                                                                                                          !
+   => const requestHeaders = new Headers();  
+       requestHeaders.append('Authorization', 'Client-ID abc123');  
+!      fetch(dehttps://api.unsplash.com/search/photos?page=1&amp;query=${searchedForText},{                        !
+!          headers: requestHeaders                                                                                 !
+!      });                                                                                                         !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   => The correct answers are options 2 and 3. 
+      The Fetch request takes the URL to the requested resource as the first argument, 
+      but the second argument is a configuration object. 
+      One of the options to this config object is a headers property.
+      One of the new additions that rode along on the coattails of Fetch 
+      is a new Headers constructor function. 
+      The headers property of a Fetch request's configuration object 
+      can either be a plain object of headers to include, 
+      or it can be a Headers object that's been built up with headers.
+2) What do you think the default HTTP method is for a Fetch request? 
+   Why don't you try running a Fetch request and look in the DevTools to see the HTTP method that is used.
+   => The correct answer is that the GET HTTP method is used for a Fetch request.
+3) We've successfully made the request, and you should be able to see the response in your console. 
+   Which property has the actual JSON data of the images? (.data, .images, ,response, both .images and .data)
+   => none of the above
+4) Which of the following methods should be used if you wanted to fetch an image? If you get stuck, check out:
+   => .blob()
+
+
+ReadMore:
+1) Lesson 1. AJAX with XHR
+    - https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
+    - https://xhr.spec.whatwg.org/
+    - https://www.w3.org/TR/XMLHttpRequest/
+    - https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+    - https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+    - https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
+    - https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send
+    - https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequestEventTarget/onload
+    - https://www.html5rocks.com/en/tutorials/file/xhr2/
+2) Lesson 2. AJAX with jQuery
+    - https://developers.google.com/web/tools/chrome-devtools/javascript/breakpoints
+    - https://developers.google.com/web/tools/chrome-devtools/javascript/reference
+    - https://learn.jquery.com/ajax/jquery-ajax-methods/
+3) Lesson 3. AJAX with Fetch
+    - https://caniuse.com/#feat=fetch
+    - https://github.com/github/fetch
+    - https://developer.mozilla.org/en-US/docs/Web/API/Headers
+    - https://fetch.spec.whatwg.org/#methods
+    - https://fetch.spec.whatwg.org/#requests
+    - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Making_fetch_requests
+    - https://davidwalsh.name/fetch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ #######  #####      #####  
+ #       #     #    #     # 
+ #       #          #       
+ #####    #####     ######  
+ #             #    #     # 
+ #       #     #    #     # 
+ #######  #####      #####  
+
+Lesson 1. Syntax
+    1) Harmony, ES6, ES2015
+        => differents between names, but these are the reasons why javascripts here!
+    2) Let and Consts
+        => declare new variables: let and consts
+        => Hoisting, using var keyword, variables are moved to the top of function scoped!
+        => Let and Const, scoped to the block, not to function!
+    3) Quiz: Using Let and Consts
+        => CHANGE THIS CODE!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!              /*                                                                                                  !
+!               * Programming Quiz: Using Let and Const (1-1)                                                      !
+!               */                                                                                                 !
+               var CHARACTER_LIMIT = 255;
+               var posts = [
+                   "#DeepLearning transforms everything from self-driving cars to language translations. AND it's our new Nanodegree!",
+                   "Within your first week of the VR Developer Nanodegree Program, you'll make your own virtual reality app",
+                   "I just finished @udacity's Front-End Web Developer Nanodegree. Check it out!"
+               ];
+               // prints posts to the console
+               function displayPosts() {
+                   for (var i = 0; i < posts.length; i++) {
+                       console.log(posts[i].slice(0, CHARACTER_LIMIT));
+!                  }                                                                                               !
+!              }                                                                                                   !
+!              displayPosts();                                                                                     !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => ANSWER!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!              /*                                                                                                  !
+!               * Programming Quiz: Using Let and Const (1-1)                                                      !
+!               */                                                                                                 !
+                const CHARACTER_LIMIT = 255;
+                const posts = [
+                	"#DeepLearning transforms everything from self-driving cars to language translations. AND it's our new Nanodegree!",
+                	"Within your first week of the VR Developer Nanodegree Program, you'll make your own virtual reality app",
+                	"I just finished @udacity's Front-End Web Developer Nanodegree. Check it out!"
+                ];
+                // prints posts to the console
+                function displayPosts() {
+                	for (let i = 0; i < posts.length; i++) {
+                		console.log(posts[i].slice(0, CHARACTER_LIMIT));
+!                   }                                                                                              !
+!               }                                                                                                  !
+!              displayPosts();                                                                                     !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => - Your code should have a variable i
+           - Your code should have a variable posts
+           - Your code should have a variable CHARACTER_LIMIT
+           - Your variable i should be declared using let
+           - Your variable posts should be declared using const
+           - Your variable CHARACTER_LIMIT should be declared using const
+    4) Template Literals
+        => to concat string, we use to do the + sign, or the method concat() from String's method
+        => but now, template literal kicks in.
+            - start with a ` `(backtick)
+            - expression are using $(expression)
+        => CHANGE THIS CODE!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!              /*                                                                                                  !
+!               * Instructions: Change the `greeting` string to use a template literal.                            !
+                */                                                                                                  
+               const myName = '[NAME]';                                                                             
+!              const greeting = 'Hello, my name is ' + myName;                                                     !
+!              console.log(greeting);                                                                              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => ANSWER!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!              /*                                                                                                  !
+!               * Instructions: Change the `greeting` string to use a template literal.                            !
+                */                                                                                                 
+               const myName = 'Darren Cavell';                                                                     
+!              const greeting = `Hello, my name is ${myName}`;                                                     !
+!              console.log(greeting);                                                                              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => - Your code should have a variable myName
+           - Your code should have a variable greeting
+           - Your code should have a template literal greeting
+           - Your template literal should match the original greeting string
+    5) Quiz: Build an HTML Fragment! (1-2)
+            => CHANGE THIS CODE!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                  /*                                                                                              !
+!                   * Programming Quiz: Build an HTML Fragment (1-2)                                               !
+!                   */                                                                                             !
+!                  const cheetah = {                                                                               !
+!                      name: 'Cheetah',                                                                            !
+!                      scientificName: 'Acinonyx jubatus',                                                         !
+!                      lifespan: '10-12 years',                                                                    !
+!                      speed: '68-75 mph',                                                                         !
+!                      diet: 'carnivore',                                                                          !
+!                      summary: 'Fastest mammal on land, the cheetah can reach speeds of 60 or perhaps even        !
+!                       70 miles (97 or 113 kilometers) an hour over short distances. It usually chases its prey   !
+!                       at only about half that speed, however. After a chase, a cheetah needs half an hour        !
+!                       to catch its breath before it can eat.',                                                   !
+!                      fact: 'Cheetahs have “tear marks” that run from the inside corners of their eyes down       !
+!                       to the outside edges of their mouth.'                                                      !
+                   };
+                   // creates an animal trading card
+                   function createAnimalTradingCardHTML(animal) {
+                       const cardHTML = '<div class="card">' +
+                           '<h3 class="name">' + animal.name + '</h3>' +
+                           '<img src="' + animal.name + '.jpg" alt="' + animal.name +'" class="picture">' +
+                           '<div class="description">' +
+                               '<p class="fact">' + animal.fact + '</p>' +
+!                              '<ul class="details">' +                                                            !
+!                                  '<li><span class="bold">Scientific Name</span>: '+animal.scientificName+'</li>'+!
+!                                  '<li><span class="bold">Average Lifespan</span>: '+animal.lifespan+'</li>'+     !
+!                                  '<li><span class="bold">Average Speed</span>: '+animal.speed+'</li>'+           !
+!                                  '<li><span class="bold">Diet</span>: '+animal.diet+'</li>'+                     !
+!                              '</ul>' +                                                                           !
+!                              '<p class="brief">' + animal.summary + '</p>' +                                     !
+!                          '</div>' +                                                                              !
+!                      '</div>';                                                                                   !
+!                      return cardHTML;                                                                            !
+!                  }                                                                                               !
+!                  console.log(createAnimalTradingCardHTML(cheetah));                                              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => ANSWER!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                  /*                                                                                              !
+!                   * Programming Quiz: Build an HTML Fragment (1-2)                                               !
+!                   */                                                                                             !
+!                  const cheetah = {                                                                               !
+!                      name: 'Cheetah',                                                                            !
+!                      scientificName: 'Acinonyx jubatus',                                                         !
+!                      lifespan: '10-12 years',                                                                    !
+!                      speed: '68-75 mph',                                                                         !
+！                     diet: 'carnivore',                                                                          !
+！                     summary: 'Fastest mammal on land, the cheetah can reach speeds of 60 or perhaps even        !
+！                      70 miles (97 or 113 kilometers) an hour over short distances. It usually chases its prey   !
+！                      at only about half that speed, however. After a chase, a cheetah needs half an hour        !
+！                      to catch its breath before it can eat.',                                                   !
+!                      fact: 'Cheetahs have “tear marks” that run from the inside corners of their eyes down       !
+!                       to the outside edges of their mouth.'                                                      !
+                   };
+                   // creates an animal trading card
+                   function createAnimalTradingCardHTML(animal) {
+                       const cardHTML = `<div class="card"> +
+                           <h3 class="name"> ${animal.name}</h3>
+                           <img src="${animal.name}.jpg" alt="${animal.name}" class="picture">
+                           <div class="description">
+!                              <p class="fact"> ${animal.fact} </p>
+!                              <ul class="details">                                                                !
+!                                  <li><span class="bold">Scientific Name</span>: ${animal.scientificName} </li>   !
+!                                  <li><span class="bold">Average Lifespan</span>: ${animal.lifespan} + </li>      !
+!                                  <li><span class="bold">Average Speed</span>: ${animal.speed} </li>              !
+!                                  <li><span class="bold">Diet</span>: ${animal.diet} </li>                        !
+!                              </ul>                                                                               !
+!                              <p class="brief"> + animal.summary + </p>                                           !
+!                          </div>                                                                                  !
+!                      </div>`;                                                                                    !
+!                      return cardHTML;                                                                            !
+!                  }                                                                                               !
+!                  console.log(createAnimalTradingCardHTML(cheetah));                                              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => - Your code should have an object cheetah
+           - Your code should have a function createAnimalTradingCardHTML()
+           - The createAnimalTradingCardHTML function should have a variable cardHTML
+           - The cardHTML variable should be a template literal
+    6) Destructuring
+        => borrows inspiration from Perl and Python, specifying elements on left side
+        => Destructuring values from an array
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!               const point = [10, 25, -34];                                                                       !
+                const [x, y, z] = point;
+!               console.log(x, y, z);                                                                              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => Destructuring values from an object
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!               const gemstone = {                                                                                 !
+!                   type: 'quartz',                                                                                !
+                    color: 'rose',
+                    carat: 21.29
+                };
+!               const {type, color, carat} = gemstone;                                                             !
+!               console.log(type, color, carat);                                                                   !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            - this will automatically set type from gemstone to const, as the names are the same
+    7) Quiz: Destructuring Arrays (1-3)
+        => CHANGE THIS CODE!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                /*                                                                                                !
+!                 * Programming Quiz: Destructuring Arrays (1-3)                                                   !
+!                 *                                                                                                !
+!                 * Use destructuring to initialize the variables `one`, `two`, and `three`                        !
+!                 * with the colors from the `things` array.                                                       !
+                  */
+                 const things = ['red', 'basketball', 'paperclip', 'green', 'computer', 'earth', 'udacity', 'blue', 'dogs'];
+                 const one = things;
+                 const two = '';
+                 const three = '';
+!                const colors = `List of Colors                                                                    !
+!                1. ${one}                                                                                         !
+!                2. ${two}                                                                                         !
+!                3. ${three}`;                                                                                     !
+!                console.log(colors);                                                                              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => ANSWER!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                /*                                                                                                !
+!                 * Programming Quiz: Destructuring Arrays (1-3)                                                   !
+!                 *                                                                                                !
+!                 * Use destructuring to initialize the variables `one`, `two`, and `three`                        !
+!                 * with the colors from the `things` array.                                                       !
+                  */
+                 const things = ['red', 'basketball', 'paperclip', 'green', 'computer', 'earth', 'udacity', 'blue', 'dogs'];
+                 const [one, , , two, , , , three] = things;
+!                const colors = `List of Colors                                                                    !
+!                1. ${one}                                                                                         !
+!                2. ${two}                                                                                         !
+!                3. ${three}`;                                                                                     !
+!                console.log(colors);                                                                              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => - Your code should have a variable things
+           - Your code should set variable one correctly
+           - Your code should set variable two correctly
+           - Your code should set variable three correctly
+           - Your code should use destructuring
+    8) Object Literal Shorthand
+        => before es6 comes in
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!               let type = 'quartz';                                                                               !
+!               let color = 'rose';                                                                                !
+!               let carat = 21.29;                                                                                 !
+
+                const gemstone = {
+                    type: type,
+!                   color: color,                                                                                  !
+!                   carat: carat                                                                                   !
+!               };                                                                                                 !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => after
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!               let type = 'quartz';                                                                               !
+                let color = 'rose';                                                                                
+                let carat = 21.29;                                                                                 
+!               const gemstone = { type, color, carat };                                                           !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => before
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!               let type = 'quartz';                                                                               !
+!               let color = 'rose';                                                                                !
+!               let carat = 21.29;                                                                                 !
+!               const gemstone = {                                                                                 !
+                    type,
+                    color,
+                    carat,
+!                   calculateWorth: function() {                                                                   !
+!                       // will calculate worth of gemstone based on type, color, and carat                        !
+!                   }                                                                                              !
+!               };                                                                                                 !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => after
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!               let type = 'quartz';                                                                               !
+!               let color = 'rose';                                                                                !
+!               let carat = 21.29;                                                                                 !
+!               const gemstone = {                                                                                 !
+                    type,
+                    color,
+                    carat,
+!                   calculateWorth() {                                                                             !
+!                       // will calculate worth of gemstone based on type, color, and carat                        !
+!                   }                                                                                              !
+!               };                                                                                                 !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    9) Lesson1 Checkup
+        => iteration is the important key
+    10) iteration
+        => iterable protocol and for...of loop
+    11) Family of For Loops
+        => simple for loop, iterates through, use counter and exit condition
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!               for(let i = 0; i < 10; i++){                                                                       !
+                    console.log(digits[i]);
+!               }                                                                                                  !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => for..in loops, didn't use counter and exit condition, but still use index
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!               for(let index in digits){                                                                          !
+                    console.log(digits[index]);
+!               }                                                                                                  !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => forEach, is a method from array, downsides: cannot be stop in the middle, need to iterate all
+    12) For..of Loops
+        => in the for..oof loops, you can break / continue in the middle of iteration.
+    13) Quiz: Writing a For..of Loop (1-4)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!               /*                                                                                                 !
+!                * Programming Quiz: Writing a For...of Loop (1-4)                                                 !
+                 */
+                const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+                for (let day of days) {                                                                            
+!                   console.log(day.charAt(0).toUpperCase() + day.slice(1));                                       !
+!               }                                                                                                  !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        - Your code should have a variable days
+        - Your variable days should be an array
+        - Your variable days should contain the days of the week
+        - Your for...of loop should loop through the days array
+        - Your for...of loop should print each day capitalized to the console
+    14) Spread...Operator
+!       => written with 3 consecutives dots (...), new in CS6, set is also new feature in es6
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const books = ["Don Quixote", "The Hobbit", "Alice in Wonderland", "Tale of Two Cities"];                  !
+!       console.log(...books);                                                                                     !
+!       // Prints: Don Quixote The Hobbit Alice in Wonderland Tale of Two Cities                                   !
+!       const primes = new Set([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);                                              !
+!       console.log(...primes);                                                                                    !
+!       // Prints: 2 3 5 7 11 13 17 19 23 29                                                                       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => spread is used when concating array
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const fruits = ["apples", "bananas", "pears"];                                                             !
+!       const vegetables = ["corn", "potatoes", "carrots"];                                                        !
+!       const produce = fruits.concat(vegetables);                                                                 !
+!       console.log(produce);                                                                                      !
+!       // Prints: ["apples", "bananas", "pears", "corn", "potatoes", "carrots"]                                   !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!        
+        => concat 2 arrays together
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const fruits = ["apples", "bananas", "pears"];                                                             !
+!       const vegetables = ["corn", "potatoes", "carrots"];                                                        !
+        const produce = [...fruit, ...vegetables];
+!       console.log(...produce);                                                                                   !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        - Your code should have a variable fruits
+        - Your code should have a variable vegetables
+        - Your code should have a variable produce
+        - Your variable produce should be an array
+        - Your variable produce should contain the values from the fruits array
+        - Your variable produce should contain the values from the vegetables array
+        - Your code should use spread operator to combine the fruits and vegetables arrays into the produce array
+    15) ...Rest Parameter
+        => used to bundle multiple element back to array
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const order = [20.17, 18.67, 1.50, "cheese", "eggs", "milk", "bread"];                                     !
+        const [total, subtotal, tax, ...items] = order;
+        console.log(total, subtotal, tax, items);
+!       // Prints: 20.17 18.67 1.5 ["cheese", "eggs", "milk", "bread"]                                             !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!       
+        => variadic function
+            - parameter that take indefinite number of arguments
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       sum(1, 2);                                                                                                 !
+        sum(10, 36, 7, 84, 90, 110);
+!       sum(-23, 3000, 575000);                                                                                    !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    16) Quiz: Using the Rest Parameter (1-5)
+        => create a ...numbers, clear parameter, rather than argument, which is unclear
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       /*                                                                                                         !
+!       * Programming Quiz: Using the Rest Parameter (1-5)                                                         !
+!       */                                                                                                         !
+!       // your code goes here                                                                                     !
+!       function average(...numbers) {                                                                             !
+!           let sum = 0;                                                                                           !
+            let num = 0;
+            for(let number of numbers){
+                sum += number;
+                num++;
+            }
+!           return (sum / num) ? sum/num : 0;                                                                      !
+!       }                                                                                                          !
+!       console.log(average(2, 6));                                                                                !
+!       console.log(average(2, 3, 3, 5, 7, 10));                                                                   !
+!       console.log(average(7, 1432, 12, 13, 100));                                                                !
+!       console.log(average());                                                                                    !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        - Your code should have a function average()
+        - Your average() function should have one parameter
+        - Your average() function should use the rest parameter
+        - Your average() function should calculate the average of an indefinite amount of numbers
+    17) Lesson 1 Summary
+        => let and const, iterator, spread, and rest parameter
+
+Lesson 2. Functions
+    1) Updates to Functions
+        => arrow function and classes
+    2) Arrow Functions
+        => before using the arrow functions
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const upperizedNames = ['Farrin', 'Kagure', 'Asser'].map(function(name) {                                  !
+            return name.toUpperCase();
+!       });                                                                                                        !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => after using
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const upperizedNames = ['Farrin', 'Kagure', 'Asser'].map(                                                  !
+            name => name.toUpperCase()
+!       );                                                                                                         !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    3) Using Arrow Functions
+        => no parameter, still need to use parentheses
+        => single parameter, can omit the () parentheses
+        => many parameter, use the parentheses
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const sayHi = () => `Hello Udacity Student!`;                                                              !
+!       console.log(sayHi());                                                                                      !
+        const greet = name => `Hello ${name}!`;
+        console.log(greet('Darren'));
+!       const orderIceCream = (flavor, cone) => `Here's your ${flavor} ice cream with ${cone}!`;                   !
+!       console.log(orderIceCream('vanilla', 'cone'));                                                             !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    4) Quiz: Convert Function into an Arrow Function (2-1)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!   /*                                                                                                             !
+!    * Programming Quiz: Convert Function into an Arrow Function (2-1)                                             !
+     */
+    // convert to an arrow function
+!   const squares = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(square => square * square);                                !
+!   console.log(...squares);                                                                                       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    5) Arrow Functions Recap
+        => there will be this, which is introduce in the next video
+    6) Arrow Functions and the "this" keyboard
+        => this, how the function is called
+        => arrow functions, where it's located in the code
+    7) "this" and Regular Functions
+        => this could be any of the following:
+            - A new object
+                - the value of this inside the Sundae constructor function is a new object because it was called with new.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!           const mySundae = new Sundae('Chocolate', ['Sprinkles', 'Hot Fudge']);                                  !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            - A specified object
+                - the value of this inside printName() will refer to obj2 since the first parameter of call() is to explicitly set what this refers to.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!           const result = obj1.printName.call(obj2);                                                              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            - A context object
+                - the value of this inside teleport() will refer to data.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!           data.teleport();                                                                                       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            - The global object or undefined
+                - the value of this inside teleport() is either the global object or, if in strict mode, it's undefined.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!           teleport();                                                                                            !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    8) "this" and Arrow Functions
+        => still cant do it :()
+    9) Default Function Parameters
+        => Take a look at the following code,
+           Which of the following choices is the correct way to write the shippingLabel() function using default function parameters?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!           function shippingLabel(name, address) {                                                                !
+!               name = (typeof name !== 'undefined') ? name : 'Richard';                                           !
+                address = (typeof address !== 'undefined') ?  address : 'Mountain View';
+!               return `To: ${name} In: ${address}`;                                                               !
+!           }                                                                                                      !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+           - function shippingLabel(name = 'Richard', address='Mountain View'){
+                   return `To: ${name} In: ${address}`;
+             }
+    10) Defaults and Destructuring
+        => combine default function with destructuring.
+        => Take a look at the following code:
+           Which of the following choices will run without throwing an error?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       function houseDescriptor([houseColor = 'green', shutterColors = ['red']]) {                                !
+            return `I have a ${houseColor} house with ${shutterColors.join(' and ')} shutters`;
+!       }                                                                                                          !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+           - houseDescriptor(['green', ['white', 'gray', 'pink']]);
+           - houseDescriptor(['green']);
+        => Take a look at the following code:
+           Which of the following choices will run without throwing an error?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       function houseDescriptor({houseColor = 'green', shutterColors = ['red']} = {}) {                           !
+            return `I have a ${houseColor} house with ${shutterColors.join(' and ')} shutters`;
+!       }                                                                                                          !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+           - houseDescriptor({houseColor: 'red', shutterColors: ['white', 'gray', 'pink']});
+           - houseDescriptor({houseColor: 'red'});
+           - houseDescriptor();
+           - houseDescriptor({shutterColors: ['orange', 'blue']});
+           - houseDescriptor({});
+    11) Quiz: Using Default Function Parameter (2-2)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       /*                                                                                                         !
+!       * Programming Quiz: Using Default Function Parameters (2-2)                                                !
+!       */                                                                                                         !
+        function buildHouse({floors = 1, color = 'red', walls = 'brick'} = {}){
+            return `Your house has ${floors} floor(s) with ${color} ${walls} walls.`;
+        }
+!       console.log(buildHouse()); //Your house has 1 floor(s) with red brick walls.                               !
+!       console.log(buildHouse({})); //Your house has 1 floor(s) with red brick walls.                             !
+!       console.log(buildHouse({floors: 3, color: 'yellow'})); //Your house has 3 floor(s) with yellow brick walls.!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    - Your code should have a function buildHouse()
+    - Your buildHouse() function should have one parameter
+    - Your buildHouse() function should accept an object and an empty object as a default parameter
+    - Your buildHouse() function should set the floors, color, and walls properties to default values
+    - Your buildHouse() function should produce the correct output when no arguments or any empty object is passed to it
+    - Your buildHouse() function should produce the correct output when a valid object is passed to it
+    12) Class Preview
+        => just add new keyword, class, extends, super
+        => example in l4-ES6
+    13) Javascript's Illusion of classes
+        => under the hood, all of the underlying still the same, 
+           using function and prototypal inheritance under the hood
+        => is not a class-based language, it uses functions to create objects and links object together
+           by prototypal inheritance.
+        => javascript's classes is just a thin mirage over regular functions and prototypal inheritance.
+    14) Javascript Classes
+        => before es6, ES2015
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       function Plane(numEngines) {                                                                               !
+!           this.numEngines = numEngines;                                                                          !
+!           this.enginesActive = false;                                                                            !
+!       }                                                                                                          !
+!        // methods "inherited" by all instances                                                                   !
+        Plane.prototype.startEngines = function () {
+            console.log('starting engines...');
+            this.enginesActive = true;
+!       };                                                                                                         !
+!       const richardsPlane = new Plane(1);                                                                        !
+!       richardsPlane.startEngines();                                                                              !
+!       const jamesPlane = new Plane(4);                                                                           !
+!       jamesPlane.startEngines();                                                                                 !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        => after ES2016
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       class Plane {                                                                                              !
+!           constructor(numEngines) {                                                                              !
+!               this.numEngines = numEngines;                                                                      !
+!               this.enginesActive = false;                                                                        !
+            }
+
+            startEngines() {
+!               console.log('starting engines…');                                                                  !
+!               this.enginesActive = true;                                                                         !
+!           }                                                                                                      !
+!       }                                                                                                          !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    15) Convert a Function to A Class
+        => example in l4-ES6
+    16) Working with Javascript Classes
+        => Take a look at the following code:
+           Which of the following are true?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       class Animal {                                                                                             !
+!           constructor(name = 'Sprinkles', energy = 100) {                                                        !
+!               this.name = name;                                                                                  !
+!               this.energy = energy;                                                                              !
+            }
+!           eat(food) {                                                                                            !
+!               this.energy += food / 3;                                                                           !
+!           }                                                                                                      !
+!       }                                                                                                          !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+           - The eat() method ends up on Animal.prototype.
+           - typeof Animal === 'function'
+    17) Super and extends
+        => example in l4-ES6
+    18) Extending Classes from ES5 to ES6
+        => example in l4-ES6
+    19) Working with Javascript Subclasses
+        => Take a look at the following code:
+            class Toy {}
+            class Dragon extends Toy {}
+            const dragon1 = new Dragon();
+
+            Given the code above, is the following statement true or false?
+            dragon1 instanceof Toy;
+            - true
+        => Let's say that a Toy class exists and that a Dragon class extends the Toy class.
+           What is the correct way to create a Toy object from inside the Dragon class's constructor method?
+           - super();
+    20) Quix: Building Classes and Subclasses (2-3)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       /*                                                                                                         !
+!        * Programming Quiz: Building Classes and Subclasses (2-3)                                                 !
+!        */                                                                                                        !
+!       class Vehicle {                                                                                            !
+!           constructor(color = 'blue', wheels = 4, horn = 'beep beep') {                                          !
+!               this.color = color;                                                                                !
+!               this.wheels = wheels;                                                                              !
+!               this.horn = horn;                                                                                  !
+!           }                                                                                                      !
+!           honkHorn() {                                                                                           !
+                console.log(this.horn);
+            }
+        }
+!       // your code goes here                                                                                     !
+!       class Bicycle extends Vehicle {                                                                            !
+!           constructor(color = 'blue', wheels = 2, horn = 'honk honk'){                                           !
+!               super(color, wheels, horn);                                                                        !
+!           }                                                                                                      !
+!       }                                                                                                          !
+!       const myVehicle = new Vehicle();                                                                           !
+!       myVehicle.honkHorn(); // beep beep                                                                         !
+!       const myBike = new Bicycle();                                                                              !
+!       myBike.honkHorn(); // honk honk                                                                            !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        - Your code should have a class Vehicle
+        - Your code should have a class Bicycle
+        - Your class Bicycle should be a subclass of the class Vehicle
+        - Your class Bicycle should have a constructor
+        - Your Bicycle's constructor should set default values for color, wheels, and horn
+        - Your Bicycle's constructor should override Vehicle's constructor as specified in the directions
+    21) Lesson 2 summary
+        => arrow function, default function parameter, javascript classes (simulated through functions)
+
+Lesson 3. Built-ins
+    1) New Built-ins
+        => ease us to execute a task that once difficult in earlier version of the language
+    2) Symbol Intro
+        => latest additions pirmitive data types (number, strings, booleans, null, undefined)
+        => symbol (unique identifier, often used to uniquely to identify properties within object)
+            - example put a fruit in a bowl (apple, orange, banana)
+            - then add another banana
+            - if i ask you to take the banana, you will ask, which one?
+            - this is where symbol comes in handy!
+    3) Symbols
+        => unique & immutable data type, used to identify object properties.
+        => example in l4-ES6
+    4) Iteration & Iterable Protocols
+        => iterable protocol: iterating through objects (strings and array)
+        => iterator protocol: process of defining how an object will iterate
+    5) Sets
+        => not indexed-based, we do not refer to items in a set
+        => items in a set can't be accesed individually
+    6) Modifying Sets
+        => use .add(), .delete()
+        => .add() returns the set, and .delete returns boolean
+    7) Working With Sets
+        => .size
+        => .has()
+        => .values()
+        => .keys()
+    8) Sets and Iterators
+        => using .next() and for...of loop
+    9) WeaksSet
+        => like normal set, but:
+            - only contain objects
+            - not iterable, cannot be looped over
+            - .clear()
+    10) Maps
+        => maps and sets are similar
+            - maps::objects, sets:arrays
+            - maps and sets are iterable, maps -> collection of key-value, sets -> collection of unique values
+            - weakmaps and weaksets dont prevent object being garbage collection
+    11) Creating & Modifying Maps
+QUIZ:
+1.2a) What do you expect to be the output from running getClothing(false)?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!      function getClothing(isCold) {                                                                              !
+!        if (isCold) {                                                                                             !
+!          var freezing = 'Grab a jacket!';                                                                        !
+         } else {                                                                                                  
+           var hot = 'It’s a shorts kind of day.';                                                                 
+!          console.log(freezing);                                                                                  !
+!        }                                                                                                         !
+!      }                                                                                                           !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   => It actually outputs undefined, weird right? Continue reading to learn more about this quirk of JavaScript.
+1.2b) What do you expect to be the output from running getClothing(false)?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!      function getClothing(isCold) {                                                                              !
+!        if (isCold) {                                                                                             !
+!          const freezing = 'Grab a jacket!';                                                                      !
+         } else {
+           const hot = 'It’s a shorts kind of day.';
+!          console.log(freezing);                                                                                  !
+!        }                                                                                                         !
+!      }                                                                                                           !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    => Because freezing is not declared inside the else statement, the function scope, or the global scope, a ReferenceError is thrown.
+1.2c) What do you expect to be output from running the following code?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!      let instructor = 'James';                                                                                   !
+!      instructor = 'Richard';                                                                                     !
+!      console.log(instructor);                                                                                    !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    => Richard
+1.6a) What do you expect to be the value of second after running the following code?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!        let positions = ['Gabrielle', 'Jarrod', 'Kate', 'Fernando', 'Mike', 'Walter'];                            !
+!        let [first, second, third] = positions;                                                                   !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    => Jarrod
+1.6b) What do you expect to be returned from calling getArea()?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const circle = {                                                                                           !
+!           radius: 10,                                                                                            !
+!           color: 'orange',                                                                                       !
+            getArea: function() {
+                return Math.PI * this.radius * this.radius;
+            },
+            getCircumference: function() {
+                return 2 * Math.PI * this.radius;
+!           }                                                                                                      !
+!       };                                                                                                         !
+!       let {radius, getArea, getCircumference} = circle;                                                          !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    => Correct! Calling getArea() will return NaN. When you destructure the object and store the getArea() method into the getArea variable, it no longer has access to this in the circle object which results in an area that is NaN.
+2.2a) Which of the following choices does the same thing, but replaces .filter()'s function with an arrow function?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const names = ['Afghanistan', 'Aruba', 'Bahamas', 'Chile', 'Fiji', 'Gabon', 'Luxembourg', 'Nepal', 'Singapore', 'Uganda', 'Zimbabwe'];
+            const longNames = names.filter(function(name) {
+            return name.length > 6;
+!       });                                                                                                        !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      => const longNames = names.filter(name => name.length > 6);
+2.2b) Using your knowledge of how arrow functions work with automatic returns and curly braces, which of the following choices have correctly formatted arrow functions?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!     => const colors = ['red', 'blue', 'green', 'yellow', 'orange', 'black'];                                     !
+!        const crazyColors = colors.map( color => {                                                                !
+             const jumble = color.split('').reverse();
+             return jumble.join('') + '!';
+         });
+!     => const colors = ['red', 'blue', 'green', 'yellow', 'orange', 'black'];                                     !
+!        const crazyColors = colors.map( color =&gt; color.split('').reverse().join('') + '!' );                   !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      => both of these are corrects, the one that doesnt if, the statement only 1, but it uses return as 1 line statement will automatically be returned. or if the statement more than 1 line, use curly brace and need to use return at the end.
+2.7a) What is the value of this inside the Train constructor function below?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const redTrain = new Train('red');                                                                         !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      => a new object
+2.7b) What is the value of this inside the increaseSpeed() function below?
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!       const redTrain = new Train('red');                                                                         !
+!       redTrain.increaseSpeed(25);                                                                                !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     => the redTrain object
+3.5) Select the collections below that represent a Set in JavaScript.
+    - {1, 'Basketba;;}, true, false, '1'}
+    - {}
+    - {'Gymnastic', 'Swimming', 2}
+3.9) Create a variable with the name myFavoriteFlavors and give it the value of an empty Set object. Then use the .add() method to add the following strings to it:
+      "chocolate chip"
+      "cookies and cream"
+      "strawberry"
+      "vanilla"
+     Then use the .delete() method to remove "strawberry" from the set.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    /*                                                                                                            !
+!     * Programming Quiz: Using Sets (3-1)                                                                         !
+!     *                                                                                                            !
+!     * Create a Set object and store it in a variable named `myFavoriteFlavors`. Add the following strings to the set:
+!     *     - chocolate chip                                                                                       !
+!     *     - cookies and cream                                                                                    !
+      *     - strawberry
+      *     - vanilla
+      *
+      * Then use the `.delete()` method to remove "strawberry" from the set.
+      */
+!   const myFavoriteFlavors = new Set();                                                                           !
+!   myFavoriteFlavors.add('chocolate chip');                                                                       !
+!   myFavoriteFlavors.add('cookies and cream');                                                                    !
+!   myFavoriteFlavors.add('strawberry');                                                                           !
+!   myFavoriteFlavors.add('vanilla');                                                                              !
+!   myFavoriteFlavors.delete('strawberry');                                                                        !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        - Your code should have a variable myFavoriteFlavors
+        - Your code should use the .add() method to add required items to the set
+        - Your code should use the .delete() method to remove "strawberry"
+        - Your code should use the .delete() method only once             
+        - The myFavoriteFlavors object should contain "chocolate chip"    
+        - The myFavoriteFlavors object should contain "cookies and cream" 
+        - The myFavoriteFlavors object should contain "vanilla"           
+        - The myFavoriteFlavors object should not contain "strawberry"
+3.11) Create the following variables:
+     - uniqueFlavors and give it the value of an empty WeakSet object
+     - flavor1, and set it to the object { flavor: 'chocolate' }
+     - flavor2, and set it to an object with a property of flavor and a value of your choice
+     Use the .add() method to add the objects flavor1 and flavor2 to uniqueFlavors.
+     Use the .add() method to add the flavor1 object to the uniqueFlavors set, again.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!           /*                                                                                                     !
+!            * Programming Quiz: Using Sets (3-2)                                                                  !
+!            *                                                                                                     !
+!            * Create the following variables:                                                                     !
+!            *     - uniqueFlavors and set it to a new WeakSet object                                              !
+!            *     - flavor1 and set it equal to `{ flavor: 'chocolate' }`                                         !
+!            *     - flavor2 and set it equal to an object with property 'flavor' and value of your choice!
+             *
+             * Use the `.add()` method to add the objects `flavor1` and `flavor2` to `uniqueFlavors`
+             * Use the `.add()` method to add the `flavor1` object (again!) to the `uniqueFlavors` set
+!            */                                                                                                    !
+!           const uniqueFlavors = new WeakSet([]);                                                                 !
+!           const flavor1 = {flavor: 'chocolate'};                                                                 !
+!           const flavor2 = {flavor: 'white'};                                                                     !
+!           uniqueFlavors.add(flavor1);                                                                            !
+!           uniqueFlavors.add(flavor2);                                                                            !
+!           uniqueFlavors.add(flavor1);                                                                            !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        - Your code should have a variable uniqueFlavors
+        - Your code should have a variable flavor1
+        - Your code should have a variable flavor2
+        - Your code should use the .add() method three times to add required items to the set
+        - The uniqueFlavors object should contain a "chocolate" flavor object
+        - The uniqueFlavors object should contain a custom flavor object
+ReadMore:
+Lesson 1,
+- https://en.wikipedia.org/wiki/String_interpolation
+- https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md
+- https://github.com/getify/You-Dont-Know-JS/blob/master/README.md
+Lesson 3,
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management#Garbage_collection

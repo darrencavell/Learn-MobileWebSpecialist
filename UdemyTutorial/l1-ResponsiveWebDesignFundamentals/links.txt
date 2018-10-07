@@ -1,0 +1,13 @@
+https://storage.googleapis.com/supplemental_media/udacityu/3520169345/pattern-mostly-fluid-quiz-blankcss.html
+
+html5rocks.com
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples#Example_5:_Event_Propagation
+
+https://developers.google.com/web/fundamentals/design-and-ux/responsive/images
+
+https://developers.google.com/web/fundamentals/
+
+https://www.lifewire.com/display-none-vs-visibility-hidden-3466884
+
+https://css-tricks.com/responsive-data-table-roundup/
