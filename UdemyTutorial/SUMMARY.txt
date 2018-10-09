@@ -1643,6 +1643,9 @@ Lesson 3. Built-ins
             - maps and sets are iterable, maps -> collection of key-value, sets -> collection of unique values
             - weakmaps and weaksets dont prevent object being garbage collection
     11) Creating & Modifying Maps
+        => .set()
+            - using .set() to a map that has the same key will overwrite
+
 QUIZ:
 1.2a) What do you expect to be the output from running getClothing(false)?
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -228,11 +228,14 @@ games.delete('Super Mario Bros.');
 console.log(games);
 
 const months = new Set(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']);
-console.log(months.size) //Checking the Length
-console.log(months.has('September')) // Checking an Item Exists
-console.log(months.values()); // Retrieving All Values
+//Checking the Length
+console.log(months.size);
+// Checking the following item
+console.log(months.has('September'))
+// Retrieving All Values
+console.log(months.values()); 
 
-// Using the Iterable Protocols
+// Using the Iterable Protocols (.values and .keys in Sets are the same!
 const iterator = months.values();
 console.log(iterator.next());
 console.log(iterator.next());
@@ -250,3 +253,123 @@ let student3 = { name: 'Brigitta Febriani', age: 18, gender: 'Female' };
 const students = new WeakSet([student1, student2]);
 console.log(students);
 students.add(student3);
+
+/********/
+/* Maps */
+/********/
+const employees = new Map();
+employees.set('darren_cavell@yahoo.com', {
+    firstName: 'Darren',
+    lastName: 'Cavell',
+    role: 'Frontend Developer'
+})
+employees.set('brigitta_febriani@yahoo.com', {
+    firstName: 'Brigitta',
+    lastName: 'Febriani',
+    role: 'Software Engineer'
+});
+employees.delete('brigitta_febriani@yahoo.com');
+console.log(employees);
+
+const members = new Map();
+members.set('Evelyn', 75.68);
+members.set('Liam', 20.16);
+members.set('Sophia', 0);
+members.set('Marcus', 10.25);
+// Check the following key
+console.log(members.has('Xavier'));
+ // Get the following value
+console.log(members.get('Evelyn'));
+
+// Using the MapIterator
+let iteratorObjForKeys = members.keys();
+console.log(iteratorObjForKeys.next()); // Loop for the keys
+let iteratorObjForValues = members.values();
+console.log(iteratorObjForValues.next()); // Loop for the values
+
+// Using For...Of Loops
+for (const member of members){
+    console.log(member);
+}
+
+// Using forEach Loop
+members.forEach((value, key) => console.log(key, value));
+
+/************/
+/* WeakMaps */
+/************/
+const book1 = { title: 'Pride and Prejudice', author: 'Jane Austin' };
+const book2 = { title: 'The Catcher in the Rye', author: 'J.D. Salinger' };
+const book3 = { title: 'Gulliver\'s Travels ', author: 'Jonathan Swift '};
+const library = new WeakMap();
+library.set(book1, true);
+library.set(book2, false);
+library.set(book3, true);
+console.log(library);
+
+/************/
+/* Promises */
+/************/
+const mySundaeIceCream = new Promise(function(resove, reject){
+    const mySundae = {};
+    // if (iceCreamConeIsEmpty(flavor)) {
+    //     reject(`Sorry, we're out of that flavor :-(`);
+    // }
+    // resolve(sundae);
+});
+
+// mySundae.then(function (sundae) {
+//     console.log(`Time to eat my delicious sundae!`);
+// }, function (msg) {
+//     console.log(msg);
+// });
+
+/***********/
+/* Proxies */
+/***********/
+const richard = {status: 'looking for job'};
+const handler = {
+    get(target, propName){
+        return `He's such a good person, really recommended!`;
+    },
+    set(target, propName, value){
+        if(propName === 'payRate'){
+            value = value * 0.85;
+        }
+        target[propName] = value;
+    }
+};
+
+/*************/
+/* Generator */
+/*************/
+function* displayResponse() {
+    const response = yield;
+    console.log(`Your response is ${response}!`);
+}
+const iteratorGenerator = displayResponse();
+// starts running the generator function
+iteratorGenerator.next();
+// send data into the generator
+iteratorGenerator.next('Hello Udacity Student');
+
+function* getEmployee(){
+    const names = ['Darren', 'Brigitta', 'Amanda', 'Diego', 'Farin'];
+    const facts = [];
+
+    for(const name of names){
+        facts.push(yield name);
+    }
+    
+    return facts;
+}
+
+const generatorIterator = getEmployee();
+let name = generatorIterator.next().value;
+name = generatorIterator.next(`${name} is cool!`).value;
+name = generatorIterator.next(`${name} is rad!`).value;
+name = generatorIterator.next(`${name} is impressive!`).value;
+name = generatorIterator.next(`${name} is stunning!`).value;
+
+const positions = generatorIterator.next(`${name} is awe-inspiring!`).value;
+console.log(positions.join('\n'));
