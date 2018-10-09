@@ -4,8 +4,6 @@
 
 ## Lesson 3 - Built-ins
 
----
-
 ### 13 - Creating & Modifying Maps
 
 #### 13.1 - Creating Maps

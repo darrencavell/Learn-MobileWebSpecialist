@@ -4,8 +4,6 @@
 
 ## Lesson 4 - Professional Developer-fu
 
----
-
 ### 2 - Old and New Browsers
 
 #### 2.1 - Code doesn't work in old browsers
