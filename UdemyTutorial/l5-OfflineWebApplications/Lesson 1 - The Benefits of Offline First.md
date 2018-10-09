@@ -4,8 +4,6 @@
 
 ## Lesson 1 - The Benefits of Offline First
 
----
-
 ### 4 - Quiz: What Can Slow Us Down
 
 ```
